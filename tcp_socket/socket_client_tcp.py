@@ -8,7 +8,7 @@ address_to_server = ('192.168.31.71', 8886)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(address_to_server)
-client.send(bytes("Hello My Love!", encoding='UTF-8'))
+client.send(bytes("Hello from TCP Python Client!", encoding='UTF-8'))
 
 data = client.recv(1024)
 print(str(data))

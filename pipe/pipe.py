@@ -13,7 +13,7 @@ def fun(name):
     # Отправляем строку в трубу
     child_conn.send('hello' + str(name))
     print(os.getppid(), "----", os.getpid())
-
+    time.sleep(1)
 
 jobs = []
 # Создайте 5 дочерних процессов
@@ -23,6 +23,7 @@ for i in range(5):
     p.start()
 for i in range(5):
     data = parent_conn.recv()
-    print(data)
+    print(f'data received from parent: {data}')
+    time.sleep(1)
 for i in jobs:
     i.join()
